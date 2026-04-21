@@ -1,13 +1,15 @@
-using TMPro;
+﻿using TMPro;
 using System.IO;
 using UnityEngine;
+using UnityEditor.Scripting.Python;
 
-public class DisplayScore : MonoBehaviour
+public class Main : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI incomeText;
-    public int score = 0;
-    public int incomePerSecond = 1;
+    public string scoreString = "₱";
+    public double score = 0;
+    public double incomePerSecond = 0.1;
 
     float timer = 0f;
 
@@ -23,41 +25,61 @@ public class DisplayScore : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    //private void ForceReset()
-    //{
-    //    score = 0;
-    //    incomePerSecond = 0;
-    //}   
+    public void ForceReset()
+    {
+        score = 0;
+        incomePerSecond = 0.1;
+        ForceUIUpdate();
 
-    //private void OnEnable()
+        //Reset upgrades
+    }
+
+    //void OnEnable()
     //{
     //    ForceReset();
     //}
 
     void Start()
     {
-        scoreText.text = score.ToString();
+        ForceUIUpdate();
+    }
+
+    public void ForceUIUpdate()
+    {
+        scoreString += scoreString.ToString();
+        incomeText.text = incomePerSecond.ToString();
     }
 
     public void UpgradeScore()
     {
-        incomePerSecond += 1;
+        incomePerSecond += 0.1;
 
         incomeText.text = incomePerSecond.ToString();
     }
 
     public void UpdateScore()
     {
-        //scoreText.text = value.ToString();
-        int scoreCurr = score + 1;
+        double scoreCurr = score + 0.1;
         score = scoreCurr;
 
-        scoreText.text = scoreCurr.ToString();
+        //Raw print value as a string
+        //scoreText.text = scoreCurr.ToString();
+        //incomeText.text = incomePerSecond.ToString();
+
+        //Add ₱ as a string
+        scoreString += scoreCurr.ToString();
         incomeText.text = incomePerSecond.ToString();
+
+    }
+
+    public static void SavePlayerPython()
+    {
+        PythonRunner.RunFile("Assets/Script/new_python_script2.py");
     }
 
     public void SavePlayer()
     {
+        //C#
         PlayerData data = new PlayerData(score, incomePerSecond);
 
         string json = JsonUtility.ToJson(data, true);
@@ -66,6 +88,9 @@ public class DisplayScore : MonoBehaviour
         File.WriteAllText(path, json);
 
         Debug.Log("Saved to: " + path);
+
+        //Run Python SaveData
+        SavePlayerPython();
     }
 
     public void LoadPlayer()
@@ -80,6 +105,12 @@ public class DisplayScore : MonoBehaviour
 
             Debug.Log("Name: " + data.sc);
             Debug.Log("Level: " + data.ic);
+
+            score = data.sc;
+            incomePerSecond = data.ic;
+
+            scoreString += data.sc.ToString();
+            incomeText.text = data.ic.ToString();
         }
         else
         {

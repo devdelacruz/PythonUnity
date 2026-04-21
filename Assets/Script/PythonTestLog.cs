@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MenuItem_NewPythonScript2_Class : MonoBehaviour
 {
-   [MenuItem("Python Scripts/New Python Script2")]
+   [MenuItem("Python Scripts/PythonTestLog")]
    public static void NewPythonScript2()
    {
-       PythonRunner.RunFile("Assets/Script/new_python_script2.py");
+       PythonRunner.RunFile("Assets/Script/PythonTestLog.py");
        }
 };

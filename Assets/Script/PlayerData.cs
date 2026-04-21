@@ -1,10 +1,10 @@
 [System.Serializable]
 public class PlayerData
 {
-    public int sc;
-    public int ic;
+    public double sc;
+    public double ic;
 
-    public PlayerData(int score, int incomePerSecond)
+    public PlayerData(double score, double incomePerSecond)
     {
         sc = score;
         ic = incomePerSecond;
