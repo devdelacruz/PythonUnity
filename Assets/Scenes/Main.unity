@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Debug(KEEP DISABLED) (DEV)
       objectReference: {fileID: 0}
+    - target: {fileID: 8590418246401113923, guid: 892c6d9a259f0934a971d9053f477fbb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
