@@ -1,9 +1,8 @@
 import UnityEngine
 
-UnityEngine.Debug.Log("Hello World C#")
 
-x = 'Test'
-print("HelloWorld Python")
+x = 'Python:'
+print("Python: Test Print")
 print(x)
 
-UnityEngine.Debug.Log(x + " C#")
+UnityEngine.Debug.Log(x + " Test Unity Debug Log")

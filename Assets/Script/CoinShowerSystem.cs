@@ -2,34 +2,61 @@ using UnityEngine;
 
 public class CoinShowerSystem : MonoBehaviour
 {
-    public Texture2D noiseTexture;
-    public GameObject prefab;
+    [Header("UI Parent (Canvas)")]
+    public RectTransform canvasParent;
 
-    public int width = 100;
-    public int height = 100;
-    public float scale = 10f;
-    public float threshold = 0.5f;
+    [Header("Prefab (UI Element)")]
+    public GameObject uiPrefab;
 
-    void Start()
+    [Header("Noise Texture")]
+    public Texture2D maskTexture;
+
+    [Header("Layout")]
+    public float cellSize = 10f;
+
+    public void CoinSpawn()
     {
-        SpawnObjects();
-    }
+        if (maskTexture == null || uiPrefab == null || canvasParent == null)
+        {
+            Debug.LogError("Missing references!");
+            return;
+        }
 
-    void SpawnObjects()
-    {
+        int width = maskTexture.width;
+        int height = maskTexture.height;
+
+        Vector2 offset = new Vector2(
+            -width * cellSize * 0.5f,
+            -height * cellSize * 0.5f
+        );
+
+        Color[] pixels = maskTexture.GetPixels();
+
         for (int x = 0; x < width; x++)
         {
-            for (int z = 0; z < height; z++)
+            for (int y = 0; y < height; y++)
             {
-                float u = (float)x / width;
-                float v = (float)z / height;
+                Color pixel = pixels[x + y * width];
 
-                float noiseValue = noiseTexture.GetPixelBilinear(u, v).grayscale;
-
-                if (noiseValue > threshold)
+                // Binary mask: white = spawn
+                if (pixel.r > 0.5f)
                 {
-                    Vector3 position = new Vector3(x * scale, 0, z * scale);
-                    Instantiate(prefab, position, Quaternion.identity, transform);
+                    Vector2 pos = offset + new Vector2(
+                        x * cellSize,
+                        y * cellSize
+                    );
+
+                    GameObject obj = Instantiate(uiPrefab, canvasParent);
+                    RectTransform rt = obj.GetComponent<RectTransform>();
+
+                    if (rt != null)
+                    {
+                        rt.anchoredPosition = pos;
+                        rt.sizeDelta = new Vector2(cellSize, cellSize);
+                    }
+
+                    // Optional: pass data to custom script
+                    // obj.GetComponent<YourUIElement>()?.Init(pixel);
                 }
             }
         }

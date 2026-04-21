@@ -1,7 +1,8 @@
 using UnityEditor;
 using UnityEditor.Scripting.Python;
+using UnityEngine;
 
-public class MenuItem_PythonNoiseGenerator_Class
+public class MenuItem_PythonNoiseGenerator_Class : MonoBehaviour
 {
    [MenuItem("Python Scripts/PythonNoiseGenerator")]
    public static void PythonNoiseGenerator()

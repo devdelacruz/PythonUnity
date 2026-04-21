@@ -62,11 +62,11 @@ public class Main : MonoBehaviour
         double scoreCurr = score + 0.1;
         score = scoreCurr;
 
-        //Raw print value as a string
+        // Raw print value as a string
         //scoreText.text = scoreCurr.ToString();
         //incomeText.text = incomePerSecond.ToString();
 
-        //Add ₱ as a string
+        // Add ₱ as a string
         scoreString += scoreCurr.ToString();
         incomeText.text = incomePerSecond.ToString();
 
@@ -79,7 +79,7 @@ public class Main : MonoBehaviour
 
     public void SavePlayer()
     {
-        //C#
+        // C#
         PlayerData data = new PlayerData(score, incomePerSecond);
 
         string json = JsonUtility.ToJson(data, true);
@@ -89,12 +89,13 @@ public class Main : MonoBehaviour
 
         Debug.Log("Saved to: " + path);
 
-        //Run Python SaveData
-        SavePlayerPython();
+        // Run Python SaveData
+        // SavePlayerPython();
     }
 
     public void LoadPlayer()
     {
+        // Identify JSON path
         string path = Application.persistentDataPath + "/player.json";
 
         if (File.Exists(path))
