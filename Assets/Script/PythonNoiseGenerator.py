@@ -8,7 +8,7 @@ width, height = 10, 10
 filename = "noise_10x10.png"
 
 # Controls bit white and block cells
-spawn_chance = 0.3  # 30% spawn white
+spawn_chance = 0.3  # 30% spawns white tiles the rest are black
 
 # Find Unity directory root
 start_dir = Path.cwd()

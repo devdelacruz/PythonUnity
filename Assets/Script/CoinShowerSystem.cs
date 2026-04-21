@@ -1,7 +1,7 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinShowerSystem : MonoBehaviour
+public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
 {
     [Header("UI Parent (Canvas)")]
     public RectTransform canvasParent;
@@ -9,33 +9,59 @@ public class CoinShowerSystem : MonoBehaviour
     [Header("Prefab (UI Element)")]
     public GameObject uiPrefab;
 
-    [Header("Noise Texture")]
+    [Header("Noise Texture (fallback / initial)")]
     public Texture2D maskTexture;
 
     [Header("Layout")]
     public float cellSize = 10f;
 
+    // 🔥 Track spawned objects
     private List<GameObject> spawnedObjects = new List<GameObject>();
 
-    public void Spawn()
+    void OnEnable()
     {
-        if (maskTexture == null || uiPrefab == null || canvasParent == null)
+        // Listen for texture reloads
+        UIReloadImage.OnTextureReloaded += OnTextureUpdated;
+    }
+
+    void OnDisable()
+    {
+        UIReloadImage.OnTextureReloaded -= OnTextureUpdated;
+    }
+
+    void Start()
+    {
+        if (maskTexture != null)
+            Spawn(maskTexture);
+    }
+
+    // Called when external system updates texture
+    void OnTextureUpdated(Texture2D newTexture)
+    {
+        maskTexture = newTexture;
+        Spawn(maskTexture);
+    }
+
+    // 🔁 Main spawn function
+    public void Spawn(Texture2D texture)
+    {
+        if (texture == null || uiPrefab == null || canvasParent == null)
         {
             Debug.LogError("Missing references!");
             return;
         }
 
-        ClearAll(); // optional: reset before spawning again
+        ClearAll();
 
-        int width = maskTexture.width;
-        int height = maskTexture.height;
+        int width = texture.width;
+        int height = texture.height;
 
         Vector2 offset = new Vector2(
             -width * cellSize * 0.5f,
             -height * cellSize * 0.5f
         );
 
-        Color[] pixels = maskTexture.GetPixels();
+        Color[] pixels = texture.GetPixels();
 
         for (int x = 0; x < width; x++)
         {
@@ -43,6 +69,7 @@ public class CoinShowerSystem : MonoBehaviour
             {
                 Color pixel = pixels[x + y * width];
 
+                // Binary rule: white = spawn
                 if (pixel.r > 0.5f)
                 {
                     Vector2 pos = offset + new Vector2(
@@ -65,6 +92,7 @@ public class CoinShowerSystem : MonoBehaviour
         }
     }
 
+    // 🧹 Clear all spawned UI objects
     public void ClearAll()
     {
         for (int i = 0; i < spawnedObjects.Count; i++)
