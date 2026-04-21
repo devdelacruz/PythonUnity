@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class CoinShowerSystem : MonoBehaviour
@@ -14,13 +15,17 @@ public class CoinShowerSystem : MonoBehaviour
     [Header("Layout")]
     public float cellSize = 10f;
 
-    public void CoinSpawn()
+    private List<GameObject> spawnedObjects = new List<GameObject>();
+
+    public void Spawn()
     {
         if (maskTexture == null || uiPrefab == null || canvasParent == null)
         {
             Debug.LogError("Missing references!");
             return;
         }
+
+        ClearAll(); // optional: reset before spawning again
 
         int width = maskTexture.width;
         int height = maskTexture.height;
@@ -38,7 +43,6 @@ public class CoinShowerSystem : MonoBehaviour
             {
                 Color pixel = pixels[x + y * width];
 
-                // Binary mask: white = spawn
                 if (pixel.r > 0.5f)
                 {
                     Vector2 pos = offset + new Vector2(
@@ -47,18 +51,28 @@ public class CoinShowerSystem : MonoBehaviour
                     );
 
                     GameObject obj = Instantiate(uiPrefab, canvasParent);
-                    RectTransform rt = obj.GetComponent<RectTransform>();
 
+                    RectTransform rt = obj.GetComponent<RectTransform>();
                     if (rt != null)
                     {
                         rt.anchoredPosition = pos;
                         rt.sizeDelta = new Vector2(cellSize, cellSize);
                     }
 
-                    // Optional: pass data to custom script
-                    // obj.GetComponent<YourUIElement>()?.Init(pixel);
+                    spawnedObjects.Add(obj);
                 }
             }
         }
+    }
+
+    public void ClearAll()
+    {
+        for (int i = 0; i < spawnedObjects.Count; i++)
+        {
+            if (spawnedObjects[i] != null)
+                Destroy(spawnedObjects[i]);
+        }
+
+        spawnedObjects.Clear();
     }
 }

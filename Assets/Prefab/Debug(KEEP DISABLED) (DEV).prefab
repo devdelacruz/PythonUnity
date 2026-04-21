@@ -418,7 +418,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1155360662670652672}
         m_TargetAssemblyTypeName: CoinShowerSystem, Assembly-CSharp
-        m_MethodName: CoinSpawn
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
