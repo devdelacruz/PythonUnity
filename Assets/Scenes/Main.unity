@@ -624,18 +624,18 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 625050539}
-    - target: {fileID: 710572035393234146, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 625050539}
     - target: {fileID: 925434281085026348, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
       propertyPath: m_Name
       value: Game(KEEP DISABLED)
       objectReference: {fileID: 0}
-    - target: {fileID: 1305169528589180880, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 625050539}
+    - target: {fileID: 1276701022375959027, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1683
+      objectReference: {fileID: 0}
+    - target: {fileID: 1276701022375959027, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 991
+      objectReference: {fileID: 0}
     - target: {fileID: 2258114017395299408, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -648,14 +648,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 625050540}
-    - target: {fileID: 4234637429105067349, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 625050539}
-    - target: {fileID: 5679241741364394291, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 625050539}
     - target: {fileID: 6521800270490750882, guid: 35ea0be8209de11418e3fea7a482f552, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -784,6 +776,10 @@ PrefabInstance:
     - target: {fileID: 8245318554022717011, guid: 7e184ca13dd9c8143a0eceb5b972f906, type: 3}
       propertyPath: m_Name
       value: Menu(KEEP ENABLED)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8245318554022717011, guid: 7e184ca13dd9c8143a0eceb5b972f906, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8992145834004305039, guid: 7e184ca13dd9c8143a0eceb5b972f906, type: 3}
       propertyPath: m_Pivot.x
