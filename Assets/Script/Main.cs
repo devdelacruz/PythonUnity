@@ -49,12 +49,12 @@ public class Main : MonoBehaviour
     private double decorationsUpgradeAmount = 10.0;
     private double scrambleTropaUpgradeAmount = 25.0;
 
-    private double toppingsUnlockPrice = 5;
-    private double signUnlockPrice = 25;
-    private double scrambleMakerUnlockPrice = 100;
-    private double foodcartUnlockPrice = 500;
-    private double decorationsUnlockPrice = 1000;
-    private double scrambleTropaUnlockPrice = 5000;
+    private double toppingsUnlockPrice = 50;
+    private double signUnlockPrice = 250;
+    private double scrambleMakerUnlockPrice = 1000;
+    private double foodcartUnlockPrice = 5000;
+    private double decorationsUnlockPrice = 10000;
+    private double scrambleTropaUnlockPrice = 50000;
 
     private double toppingsLevelPrice = 2;
     private double signLevelPrice = 10;
@@ -63,7 +63,7 @@ public class Main : MonoBehaviour
     private double decorationsLevelPrice = 500;
     private double scrambleTropaLevelPrice = 1000;
 
-    private double levelPriceIncrease = 1.5;
+    private double levelPriceIncrease = 2;
 
     private bool toppingsUnlocked = false;
     private bool signUnlocked = false;
@@ -312,32 +312,32 @@ public class Main : MonoBehaviour
 
     public void ToppingsLevelDisplay()
     {
-        toppingsLevelText.text = "Toppings Level: " + toppingsLevel + "/" + maxUpgradeLevel;
+        toppingsLevelText.text = toppingsLevel + "/" + maxUpgradeLevel;
     }
 
     public void SignLevelDisplay()
     {
-        signLevelText.text = "Sign Level: " + signLevel + "/" + maxUpgradeLevel;
+        signLevelText.text = signLevel + "/" + maxUpgradeLevel;
     }
 
     public void ScrambleMakerLevelDisplay()
     {
-        scrambleMakerLevelText.text = "Scramble Maker Level: " + scrambleMakerLevel + "/" + maxUpgradeLevel;
+        scrambleMakerLevelText.text = scrambleMakerLevel + "/" + maxUpgradeLevel;
     }
 
     public void FoodcartLevelDisplay()
     {
-        foodcartLevelText.text = "Foodcart Level: " + foodcartLevel + "/" + maxUpgradeLevel;
+        foodcartLevelText.text = foodcartLevel + "/" + maxUpgradeLevel;
     }
 
     public void DecorationsLevelDisplay()
     {
-        decorationsLevelText.text = "Decorations Level: " + decorationsLevel + "/" + maxUpgradeLevel;
+        decorationsLevelText.text = decorationsLevel + "/" + maxUpgradeLevel;
     }
 
     public void ScrambleTropaLevelDisplay()
     {
-        scrambleTropaLevelText.text = "ScrambleTropa Level: " + scrambleTropaLevel + "/" + maxUpgradeLevel;
+        scrambleTropaLevelText.text = scrambleTropaLevel + "/" + maxUpgradeLevel;
     }
 
     public void UpdateNextLevelPrices()
