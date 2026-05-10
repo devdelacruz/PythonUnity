@@ -124,6 +124,8 @@ public class Main : MonoBehaviour
         //foodcartBuyButton.SetActive(true);
         //decorationsBuyButton.SetActive(true);
         //scrambleTropaBuyButton.SetActive(true);
+
+        unlockManager.resetAll();
     }
 
     public void ForceReset()
@@ -153,6 +155,12 @@ public class Main : MonoBehaviour
     public void UpdateScore()
     {
         score += 0.1;
+        ForceUIUpdate();
+    }
+
+    public void UpdateScore2()
+    {
+        score += 50;
         ForceUIUpdate();
     }
 
@@ -370,7 +378,7 @@ public class Main : MonoBehaviour
 
     public void SavePlayer()
     {
-        PlayerData data = new PlayerData(score, incomePerSecond);
+        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel);
 
         string json = JsonUtility.ToJson(data, true);
 
@@ -394,6 +402,7 @@ public class Main : MonoBehaviour
             incomePerSecond = data.ic;
 
             ForceUIUpdate();
+            unlockManager.startUnlockManagerAll(toppingsLevel);
         }
         else
         {
