@@ -16,18 +16,18 @@ public class Main : MonoBehaviour
     public TextMeshProUGUI scrambleTropaLevelText;
 
     public TextMeshProUGUI toppingsNextPriceText;
-    public TextMeshProUGUI signNextPriceText;
-    public TextMeshProUGUI scrambleMakerNextPriceText;
-    public TextMeshProUGUI foodcartNextPriceText;
-    public TextMeshProUGUI decorationsNextPriceText;
-    public TextMeshProUGUI scrambleTropaNextPriceText;
+    //public TextMeshProUGUI signNextPriceText;
+    //public TextMeshProUGUI scrambleMakerNextPriceText;
+    //public TextMeshProUGUI foodcartNextPriceText;
+    //public TextMeshProUGUI decorationsNextPriceText;
+    //public TextMeshProUGUI scrambleTropaNextPriceText;
 
     public GameObject toppingsBuyButton;
-    public GameObject signBuyButton;
-    public GameObject scrambleMakerBuyButton;
-    public GameObject foodcartBuyButton;
-    public GameObject decorationsBuyButton;
-    public GameObject scrambleTropaBuyButton;
+    //public GameObject signBuyButton;
+    //public GameObject scrambleMakerBuyButton;
+    //public GameObject foodcartBuyButton;
+    //public GameObject decorationsBuyButton;
+    //public GameObject scrambleTropaBuyButton;
 
     public string scoreString = "₱";
     public double score = 0;
@@ -71,6 +71,8 @@ public class Main : MonoBehaviour
     private bool foodcartUnlocked = false;
     private bool decorationsUnlocked = false;
     private bool scrambleTropaUnlocked = false;
+
+    public UnlockManager unlockManager;
 
     float timer = 0f;
 
@@ -117,11 +119,11 @@ public class Main : MonoBehaviour
         scrambleTropaLevelPrice = 1000;
 
         toppingsBuyButton.SetActive(true);
-        signBuyButton.SetActive(true);
-        scrambleMakerBuyButton.SetActive(true);
-        foodcartBuyButton.SetActive(true);
-        decorationsBuyButton.SetActive(true);
-        scrambleTropaBuyButton.SetActive(true);
+        //signBuyButton.SetActive(true);
+        //scrambleMakerBuyButton.SetActive(true);
+        //foodcartBuyButton.SetActive(true);
+        //decorationsBuyButton.SetActive(true);
+        //scrambleTropaBuyButton.SetActive(true);
     }
 
     public void ForceReset()
@@ -162,6 +164,7 @@ public class Main : MonoBehaviour
         toppingsUnlocked = true;
 
         toppingsBuyButton.SetActive(false);
+        unlockManager.ActivateToppings();
 
         ForceUIUpdate();
     }
@@ -173,7 +176,7 @@ public class Main : MonoBehaviour
         score -= signUnlockPrice;
         signUnlocked = true;
 
-        signBuyButton.SetActive(false);
+        //signBuyButton.SetActive(false);
 
         ForceUIUpdate();
     }
@@ -185,7 +188,7 @@ public class Main : MonoBehaviour
         score -= scrambleMakerUnlockPrice;
         scrambleMakerUnlocked = true;
 
-        scrambleMakerBuyButton.SetActive(false);
+        //scrambleMakerBuyButton.SetActive(false);
 
         ForceUIUpdate();
     }
@@ -197,7 +200,7 @@ public class Main : MonoBehaviour
         score -= foodcartUnlockPrice;
         foodcartUnlocked = true;
 
-        foodcartBuyButton.SetActive(false);
+        //foodcartBuyButton.SetActive(false);
 
         ForceUIUpdate();
     }
@@ -209,7 +212,7 @@ public class Main : MonoBehaviour
         score -= decorationsUnlockPrice;
         decorationsUnlocked = true;
 
-        decorationsBuyButton.SetActive(false);
+        //decorationsBuyButton.SetActive(false);
 
         ForceUIUpdate();
     }
@@ -221,7 +224,7 @@ public class Main : MonoBehaviour
         score -= scrambleTropaUnlockPrice;
         scrambleTropaUnlocked = true;
 
-        scrambleTropaBuyButton.SetActive(false);
+        //scrambleTropaBuyButton.SetActive(false);
 
         ForceUIUpdate();
     }
@@ -343,21 +346,21 @@ public class Main : MonoBehaviour
     public void UpdateNextLevelPrices()
     {
         toppingsNextPriceText.text = toppingsLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + toppingsLevelPrice.ToString("0");
-        signNextPriceText.text = signLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + signLevelPrice.ToString("0");
-        scrambleMakerNextPriceText.text = scrambleMakerLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + scrambleMakerLevelPrice.ToString("0");
-        foodcartNextPriceText.text = foodcartLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + foodcartLevelPrice.ToString("0");
-        decorationsNextPriceText.text = decorationsLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + decorationsLevelPrice.ToString("0");
-        scrambleTropaNextPriceText.text = scrambleTropaLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + scrambleTropaLevelPrice.ToString("0");
+        //signNextPriceText.text = signLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + signLevelPrice.ToString("0");
+        //scrambleMakerNextPriceText.text = scrambleMakerLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + scrambleMakerLevelPrice.ToString("0");
+        //foodcartNextPriceText.text = foodcartLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + foodcartLevelPrice.ToString("0");
+        //decorationsNextPriceText.text = decorationsLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + decorationsLevelPrice.ToString("0");
+        //scrambleTropaNextPriceText.text = scrambleTropaLevel >= maxUpgradeLevel ? "MAX" : "Next: " + scoreString + scrambleTropaLevelPrice.ToString("0");
     }
 
     public void UpdateBuyButtons()
     {
         toppingsBuyButton.SetActive(!toppingsUnlocked);
-        signBuyButton.SetActive(!signUnlocked);
-        scrambleMakerBuyButton.SetActive(!scrambleMakerUnlocked);
-        foodcartBuyButton.SetActive(!foodcartUnlocked);
-        decorationsBuyButton.SetActive(!decorationsUnlocked);
-        scrambleTropaBuyButton.SetActive(!scrambleTropaUnlocked);
+        //signBuyButton.SetActive(!signUnlocked);
+        //scrambleMakerBuyButton.SetActive(!scrambleMakerUnlocked);
+        //foodcartBuyButton.SetActive(!foodcartUnlocked);
+        //decorationsBuyButton.SetActive(!decorationsUnlocked);
+        //scrambleTropaBuyButton.SetActive(!scrambleTropaUnlocked);
     }
 
     public static void SavePlayerPython()
