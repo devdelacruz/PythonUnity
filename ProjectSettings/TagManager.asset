@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Parallax
+    uniqueID: 4237821443
+    locked: 0
+  - name: Background VFX
+    uniqueID: 3758384235
+    locked: 0
+  - name: Background
+    uniqueID: 3844022205
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: VFX
+    uniqueID: 2083482325
+    locked: 0
+  - name: Foreground
+    uniqueID: 1214183425
+    locked: 0
+  - name: UI
+    uniqueID: 4048571409
     locked: 0

@@ -4839,6 +4839,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2726271480661232426}
+  - component: {fileID: 6870024539246359248}
   m_Layer: 0
   m_Name: World_BG_VFX
   m_TagString: Untagged
@@ -4862,3 +4863,15 @@ Transform:
   - {fileID: 2622361251158568471}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &6870024539246359248
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5871966236729681146}
+  m_Enabled: 1
+  m_SortingLayerID: -536583061
+  m_SortingLayer: -2
+  m_SortingOrder: 0
+  m_SortAtRoot: 0

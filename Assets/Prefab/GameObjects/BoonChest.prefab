@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 496143542665964572}
   - component: {fileID: 5237236739939750084}
   - component: {fileID: 3744126231829348630}
-  - component: {fileID: 4739044261658866345}
+  - component: {fileID: 8517348376672146760}
   m_Layer: 5
   m_Name: BoonChest
   m_TagString: Untagged
@@ -122,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4739044261658866345}
-        m_TargetAssemblyTypeName: SimpleDestroy, Assembly-CSharp
-        m_MethodName: simpleDestroy
+      - m_Target: {fileID: 8517348376672146760}
+        m_TargetAssemblyTypeName: BoonChest, Assembly-CSharp
+        m_MethodName: BoonChestClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -132,9 +132,9 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &4739044261658866345
+--- !u!114 &8517348376672146760
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,11 +143,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 943983269734893764}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deaf850b2a3ea5744abe34ed79a620a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 284e00627975734448f570ff243b850b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useTimerDestroy: 1
-  destroyTime: 5
+  main: {fileID: 0}
+  bonusPercent: 0.15
+  destroyAfterOpen: 1
+  useTimerDestroy: 0
+  destroyTime: 15
 --- !u!1 &2492788296494345547
 GameObject:
   m_ObjectHideFlags: 0
