@@ -6,7 +6,12 @@ public class SaveSystem : MonoBehaviour
     int score;
     int incomePerSecond;
 
-    private int toppingsLevel;
+    private double toppingsLevel;
+    private double signLevel;
+    private double scrambleMakerLevel;
+    private double foodcartLevel;
+    private double decorationsLevel;
+    private double scrambleTropaLevel;
 
     //public void SaveWithParams()
     //{
@@ -28,7 +33,8 @@ public class SaveSystem : MonoBehaviour
 
     public void SavePlayer()
     {
-        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel);
+        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel,
+            signLevel, scrambleMakerLevel, foodcartLevel, decorationsLevel, scrambleTropaLevel);
 
         string json = JsonUtility.ToJson(data, true);
 

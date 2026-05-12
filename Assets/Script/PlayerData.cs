@@ -5,16 +5,22 @@ public class PlayerData
     public double ic;
 
     public double toppingsLevel;
-    //public bool signUnlocked;
-    //public bool scrambleMakerUnlocked;
-    //public bool foodcartUnlocked;
-    //public bool decorationsUnlocked;
-    //public bool scrambleTropaUnlocked;
+    public double signLevel;
+    public double scrambleMakerLevel;
+    public double foodcartLevel;
+    public double decorationsLevel;
+    public double scrambleTropaLevel;
 
-    public PlayerData(double score, double incomePerSecond, double toppingsU)
+    public PlayerData(double score, double incomePerSecond, double toppingsU, 
+        double signU, double scrambleMakerU, double foodcartU, double decorationsU, double scrambleTropaU)
     {
         sc = score;
         ic = incomePerSecond;
         toppingsLevel = toppingsU;
+        signLevel = signU;
+        scrambleMakerLevel = scrambleMakerU;
+        foodcartLevel = foodcartU;
+        decorationsLevel = decorationsU;
+        scrambleTropaLevel = scrambleTropaU;
     }
 }

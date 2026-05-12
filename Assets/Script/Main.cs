@@ -33,12 +33,12 @@ public class Main : MonoBehaviour
     public double score = 0;
     public double incomePerSecond = 0.1;
 
-    private int toppingsLevel = 0;
-    private int signLevel = 0;
-    private int scrambleMakerLevel = 0;
-    private int foodcartLevel = 0;
-    private int decorationsLevel = 0;
-    private int scrambleTropaLevel = 0;
+    private double toppingsLevel = 0;
+    private double signLevel = 0;
+    private double scrambleMakerLevel = 0;
+    private double foodcartLevel = 0;
+    private double decorationsLevel = 0;
+    private double scrambleTropaLevel = 0;
 
     private int maxUpgradeLevel = 10;
 
@@ -104,6 +104,9 @@ public class Main : MonoBehaviour
         decorationsUnlocked = false;
         scrambleTropaUnlocked = false;
 
+        score = 0;
+        incomePerSecond = 0.1;
+
         toppingsLevel = 0;
         signLevel = 0;
         scrambleMakerLevel = 0;
@@ -130,9 +133,6 @@ public class Main : MonoBehaviour
 
     public void ForceReset()
     {
-        score = 0;
-        incomePerSecond = 0.1;
-
         ResetUpgradeUnlocks();
         ForceUIUpdate();
     }
@@ -148,7 +148,6 @@ public class Main : MonoBehaviour
         DecorationsLevelDisplay();
         ScrambleTropaLevelDisplay();
 
-        UpdateNextLevelPrices();
         UpdateBuyButtons();
     }
 
@@ -185,6 +184,7 @@ public class Main : MonoBehaviour
         signUnlocked = true;
 
         signBuyButton.SetActive(false);
+        unlockManager.ActivateSigns();
 
         ForceUIUpdate();
     }
@@ -197,6 +197,7 @@ public class Main : MonoBehaviour
         scrambleMakerUnlocked = true;
 
         scrambleMakerBuyButton.SetActive(false);
+        unlockManager.ActivateScrambleMaker();
 
         ForceUIUpdate();
     }
@@ -209,6 +210,7 @@ public class Main : MonoBehaviour
         foodcartUnlocked = true;
 
         foodcartBuyButton.SetActive(false);
+        unlockManager.ActivateFoodCart();
 
         ForceUIUpdate();
     }
@@ -221,6 +223,7 @@ public class Main : MonoBehaviour
         decorationsUnlocked = true;
 
         decorationsBuyButton.SetActive(false);
+        unlockManager.ActivateDecorations();
 
         ForceUIUpdate();
     }
@@ -233,6 +236,7 @@ public class Main : MonoBehaviour
         scrambleTropaUnlocked = true;
 
         scrambleTropaBuyButton.SetActive(false);
+        unlockManager.ActivateScrambleTropa();
 
         ForceUIUpdate();
     }
@@ -378,7 +382,8 @@ public class Main : MonoBehaviour
 
     public void SavePlayer()
     {
-        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel);
+        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel, signLevel, scrambleMakerLevel, foodcartLevel,
+            decorationsLevel, scrambleTropaLevel);
 
         string json = JsonUtility.ToJson(data, true);
 
@@ -400,9 +405,15 @@ public class Main : MonoBehaviour
 
             score = data.sc;
             incomePerSecond = data.ic;
+            toppingsLevel = data.toppingsLevel;
+            signLevel = data.signLevel;
+            scrambleMakerLevel = data.scrambleMakerLevel;
+            foodcartLevel = data.foodcartLevel;
+            decorationsLevel = data.decorationsLevel;
 
+            unlockManager.startUnlockManagerAll(toppingsLevel, signLevel, scrambleMakerLevel, foodcartLevel, decorationsLevel, scrambleTropaLevel);
+            UpdateNextLevelPrices();
             ForceUIUpdate();
-            unlockManager.startUnlockManagerAll(toppingsLevel);
         }
         else
         {
