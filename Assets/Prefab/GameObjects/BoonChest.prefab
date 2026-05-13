@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 5237236739939750084}
   - component: {fileID: 3744126231829348630}
   - component: {fileID: 8517348376672146760}
+  - component: {fileID: 1591987869505088978}
   m_Layer: 5
   m_Name: BoonChest
   m_TagString: Untagged
@@ -149,8 +150,30 @@ MonoBehaviour:
   main: {fileID: 0}
   bonusPercent: 0.15
   destroyAfterOpen: 1
+  opened: 0
   useTimerDestroy: 0
   destroyTime: 15
+--- !u!95 &1591987869505088978
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943983269734893764}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dbe42040a295ffd42823c1f87606c8b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2492788296494345547
 GameObject:
   m_ObjectHideFlags: 0

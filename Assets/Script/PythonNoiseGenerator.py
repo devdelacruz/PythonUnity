@@ -4,7 +4,7 @@ from PIL import Image
 import UnityEngine
 
 # Settings
-width, height = 10, 10
+width, height = 5, 5
 filename = "noise_10x10.png"
 
 # Controls bit white and block cells

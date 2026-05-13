@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
 {
@@ -17,6 +18,14 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
 
     // 🔥 Track spawned objects
     private List<GameObject> spawnedObjects = new List<GameObject>();
+
+    // Shows in the Inspector
+    public UnityEvent onButtonPressed;
+
+    public void TriggerEvent()
+    {
+        onButtonPressed.Invoke();
+    }
 
     void OnEnable()
     {

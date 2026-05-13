@@ -506,10 +506,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 3944069421370956379, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4429410268183878163, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 772073130}
+    - target: {fileID: 5013981727091572592, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7944336121960831048, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
       propertyPath: unlockManager
       value: 

@@ -5,6 +5,7 @@ public class BoonChest : MonoBehaviour
 {
     [Header("References")]
     public Main main;
+    public BinaryNoiseUIPrefabSpawner coinShower;
 
     [Header("Reward Settings")]
     [Range(0f, 1f)]
@@ -35,13 +36,19 @@ public class BoonChest : MonoBehaviour
             Debug.LogError("Main script not found in scene!");
         }
 
+        // Automatically find Main script in scene
+        coinShower = FindObjectOfType<BinaryNoiseUIPrefabSpawner>();
+
+        if (coinShower == null)
+        {
+            Debug.LogError("Main script not found in scene!");
+        }
+
         GetComponent<Button>().onClick.AddListener(BoonChestClick);
     }
 
     public void BoonChestClick()
     {
-        Debug.LogError("Before");
-
         if (opened) return;
 
         opened = true;
@@ -49,6 +56,8 @@ public class BoonChest : MonoBehaviour
         double bonus = main.score * bonusPercent;
 
         main.score += bonus;
+        //Generate Coin
+        coinShower.TriggerEvent();
 
         //main.ForceUIUpdate();
 
@@ -56,5 +65,10 @@ public class BoonChest : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void OnDestroy()
+    {
+        Destroy(gameObject);
     }
 }
