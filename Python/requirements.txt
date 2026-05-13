@@ -1,0 +1,5 @@
+# Core numerical computing (used for noise generation)
+numpy==1.26.4
+
+# Image creation and saving (PIL / Image.fromarray)
+Pillow==10.4.0
