@@ -683,11 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6239277835761536151, guid: cc07ebf81361cc74eb460ba8e1e502b5, type: 3}
       propertyPath: m_Name
-      value: World Holder (KEEP DISABLED)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6239277835761536151, guid: cc07ebf81361cc74eb460ba8e1e502b5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: World Holder (KEEP ENABLED)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
