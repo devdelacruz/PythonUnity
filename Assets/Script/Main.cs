@@ -32,6 +32,7 @@ public class Main : MonoBehaviour
     public string scoreString = "₱";
     public double score = 0;
     public double incomePerSecond = 0.1;
+    public float coinCollect = 1.25f;
 
     private double toppingsLevel = 0;
     private double signLevel = 0;
@@ -355,6 +356,13 @@ public class Main : MonoBehaviour
     public void ScrambleTropaLevelDisplay()
     {
         scrambleTropaLevelText.text = scrambleTropaLevel + "/" + maxUpgradeLevel;
+    }
+
+    public void AddPassiveIncomeToScore()
+    {
+        score += incomePerSecond * coinCollect;
+
+        ForceUIUpdate();
     }
 
     public void UpdateNextLevelPrices()
