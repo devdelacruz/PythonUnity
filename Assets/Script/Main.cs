@@ -140,6 +140,7 @@ public class Main : MonoBehaviour
     public void ForceUIUpdate()
     {
         incomeText.text = incomePerSecond.ToString("0.0");
+        scoreText.text = scoreString + score.ToString("0.0");
 
         ToppingsLevelDisplay();
         SignLevelDisplay();
@@ -403,7 +404,6 @@ public class Main : MonoBehaviour
         );
 
         string json = JsonUtility.ToJson(data, true);
-
         string path = Application.persistentDataPath + "/player.json";
         File.WriteAllText(path, json);
 
