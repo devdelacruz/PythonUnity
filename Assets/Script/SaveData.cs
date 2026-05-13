@@ -31,16 +31,16 @@ public class SaveSystem : MonoBehaviour
     //    Debug.Log("Saved!");
     //}
 
-    public void SavePlayer()
-    {
-        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel,
-            signLevel, scrambleMakerLevel, foodcartLevel, decorationsLevel, scrambleTropaLevel);
+    //public void SavePlayer()
+    //{
+    //    PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel,
+    //        signLevel, scrambleMakerLevel, foodcartLevel, decorationsLevel, scrambleTropaLevel);
 
-        string json = JsonUtility.ToJson(data, true);
+    //    string json = JsonUtility.ToJson(data, true);
 
-        string path = Application.persistentDataPath + "/player.json";
-        File.WriteAllText(path, json); 
+    //    string path = Application.persistentDataPath + "/player.json";
+    //    File.WriteAllText(path, json); 
 
-        Debug.Log("Saved to: " + path);
-    }
+    //    Debug.Log("Saved to: " + path);
+    //}
 }

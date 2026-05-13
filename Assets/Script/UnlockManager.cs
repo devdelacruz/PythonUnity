@@ -2,13 +2,6 @@ using UnityEngine;
 
 public class UnlockManager : MonoBehaviour
 {
-    [Header("Unlock Bools Debug")]
-    public bool toppingsUnlocked;
-    public bool signUnlocked;
-    public bool scrambleMakerUnlocked;
-    public bool foodCartUnlocked;
-    public bool decorationsUnlocked;
-    public bool scrambleTropaUnlocked;
 
     [Header("Objects To Activate")]
     public GameObject toppingsObject;
@@ -25,26 +18,31 @@ public class UnlockManager : MonoBehaviour
     public double decorationsLevel;
     public double scrambleTropaLevel;
 
-    public void startUnlockManagerAll(double toppingsLevel, double signLevel, 
-        double scrambleMakerLevel, double foodCartLevel, double decorationsLevel, double scrambleTropaLevel)
+    public void StartUnlockManagerAll(
+        bool toppingsUnlocked,
+        bool signUnlocked,
+        bool scrambleMakerUnlocked,
+        bool foodCartUnlocked,
+        bool decorationsUnlocked,
+        bool scrambleTropaUnlocked)
     {
-        if (toppingsLevel != 0) { ActivateToppings(); }
-        else {  }
+        if (toppingsUnlocked)
+            ActivateToppings();
 
-        if (signLevel != 0) { ActivateSigns(); }
-        else {  }
+        if (signUnlocked)
+            ActivateSigns();
 
-        if (scrambleMakerLevel != 0) { ActivateScrambleMaker(); }
-        else {  }
+        if (scrambleMakerUnlocked)
+            ActivateScrambleMaker();
 
-        if (foodCartLevel != 0) { ActivateFoodCart(); }
-        else {  }
+        if (foodCartUnlocked)
+            ActivateFoodCart();
 
-        if (decorationsLevel != 0) { ActivateDecorations(); }
-        else {  }
+        if (decorationsUnlocked)
+            ActivateDecorations();
 
-        if (scrambleTropaLevel != 0) {  }
-        else {  }
+        if (scrambleTropaUnlocked)
+            ActivateScrambleTropa();
     }
 
     public void ActivateToppings()

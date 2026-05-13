@@ -78,7 +78,7 @@ public class Main : MonoBehaviour
 
     void Start()
     {
-        ResetUpgradeUnlocks();
+        //ResetUpgradeUnlocks();
         ForceUIUpdate();
     }
 
@@ -148,6 +148,7 @@ public class Main : MonoBehaviour
         DecorationsLevelDisplay();
         ScrambleTropaLevelDisplay();
 
+        UpdateNextLevelPrices();
         UpdateBuyButtons();
     }
 
@@ -382,8 +383,24 @@ public class Main : MonoBehaviour
 
     public void SavePlayer()
     {
-        PlayerData data = new PlayerData(score, incomePerSecond, toppingsLevel, signLevel, scrambleMakerLevel, foodcartLevel,
-            decorationsLevel, scrambleTropaLevel);
+        PlayerData data = new PlayerData(
+            score,
+            incomePerSecond,
+
+            toppingsLevel,
+            signLevel,
+            scrambleMakerLevel,
+            foodcartLevel,
+            decorationsLevel,
+            scrambleTropaLevel,
+
+            toppingsUnlocked,
+            signUnlocked,
+            scrambleMakerUnlocked,
+            foodcartUnlocked,
+            decorationsUnlocked,
+            scrambleTropaUnlocked
+        );
 
         string json = JsonUtility.ToJson(data, true);
 
@@ -403,21 +420,54 @@ public class Main : MonoBehaviour
 
             PlayerData data = JsonUtility.FromJson<PlayerData>(json);
 
+            // Core
             score = data.sc;
             incomePerSecond = data.ic;
+
+            // Levels
             toppingsLevel = data.toppingsLevel;
             signLevel = data.signLevel;
             scrambleMakerLevel = data.scrambleMakerLevel;
             foodcartLevel = data.foodcartLevel;
             decorationsLevel = data.decorationsLevel;
+            scrambleTropaLevel = data.scrambleTropaLevel;
 
-            unlockManager.startUnlockManagerAll(toppingsLevel, signLevel, scrambleMakerLevel, foodcartLevel, decorationsLevel, scrambleTropaLevel);
-            UpdateNextLevelPrices();
+            // Unlocks
+            toppingsUnlocked = data.toppingsUnlocked;
+            signUnlocked = data.signUnlocked;
+            scrambleMakerUnlocked = data.scrambleMakerUnlocked;
+            foodcartUnlocked = data.foodcartUnlocked;
+            decorationsUnlocked = data.decorationsUnlocked;
+            scrambleTropaUnlocked = data.scrambleTropaUnlocked;
+
+            // Recalculate prices
+            toppingsLevelPrice = 2 * Mathf.Pow((float)levelPriceIncrease, (float)toppingsLevel);
+            signLevelPrice = 10 * Mathf.Pow((float)levelPriceIncrease, (float)signLevel);
+            scrambleMakerLevelPrice = 50 * Mathf.Pow((float)levelPriceIncrease, (float)scrambleMakerLevel);
+            foodcartLevelPrice = 150 * Mathf.Pow((float)levelPriceIncrease, (float)foodcartLevel);
+            decorationsLevelPrice = 500 * Mathf.Pow((float)levelPriceIncrease, (float)decorationsLevel);
+            scrambleTropaLevelPrice = 1000 * Mathf.Pow((float)levelPriceIncrease, (float)scrambleTropaLevel);
+
+            // Activate visuals
+            unlockManager.StartUnlockManagerAll(
+                toppingsUnlocked,
+                signUnlocked,
+                scrambleMakerUnlocked,
+                foodcartUnlocked,
+                decorationsUnlocked,
+                scrambleTropaUnlocked
+            );
+
             ForceUIUpdate();
+
+            Debug.Log("Player Loaded!");
         }
         else
         {
             Debug.LogWarning("Save file not found!");
+
+            ResetUpgradeUnlocks();
+            ForceUIUpdate();
         }
     }
 }
