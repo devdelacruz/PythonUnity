@@ -7,26 +7,56 @@ public class SimpleDestroy : MonoBehaviour
     [Header("Timer Settings")]
     public bool useTimerDestroy = true;
 
-    [Tooltip("Time before object is destroyed")]
+    [Tooltip("Time before destroy or deactivate")]
     public float destroyTime = 5f;
+
+    [Header("Behavior")]
+    public bool useDestroy = true; // true = Destroy, false = SetInactive
 
     void Start()
     {
         if (useTimerDestroy)
         {
-            Destroy(gameObject, destroyTime);
+            Invoke(nameof(HandleEndLife), destroyTime);
         }
     }
 
-    // Manual destroy
+    void HandleEndLife()
+    {
+        if (useDestroy)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    // Manual trigger
     public void simpleDestroy()
     {
-        Destroy(gameObject);
+        HandleEndLife();
     }
 
     // Toggle timer destroy on/off
     public void simpleSetTimerDestroy(bool state)
     {
         useTimerDestroy = state;
+
+        if (state)
+        {
+            Invoke(nameof(HandleEndLife), destroyTime);
+        }
+        else
+        {
+            CancelInvoke(nameof(HandleEndLife));
+        }
+    }
+
+    // Optional: switch behavior at runtime
+    public void SetDestroyMode(bool destroy)
+    {
+        useDestroy = destroy;
     }
 }

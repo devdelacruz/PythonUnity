@@ -4,11 +4,11 @@ from PIL import Image
 import UnityEngine
 
 # Settings
-width, height = 5, 5
+width, height = 10, 10
 filename = "noise_10x10.png"
 
 # Controls bit white and block cells
-spawn_chance = 0.3  # 30% spawns white tiles the rest are black
+spawn_chance = 0.15  # 30% spawns white tiles the rest are black
 
 # Find Unity directory root
 start_dir = Path.cwd()
