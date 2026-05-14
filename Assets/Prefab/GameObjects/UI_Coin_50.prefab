@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3029465556851016126}
   - component: {fileID: 4899727413574614938}
   m_Layer: 5
-  m_Name: UI_Coin
+  m_Name: UI_Coin_50
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,6 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5ae9cf47de78440a7182b5c7be8aed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  twenty: 0
+  fifty: 1
+  hundred: 0
+  fiveHundred: 0
+  thousand: 0
 --- !u!114 &3029465556851016126
 MonoBehaviour:
   m_ObjectHideFlags: 0

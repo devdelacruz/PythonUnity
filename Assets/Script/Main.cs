@@ -32,7 +32,11 @@ public class Main : MonoBehaviour
     public string scoreString = "₱";
     public double score = 0;
     public double incomePerSecond = 0.1;
-    public float coinCollect = 1.25f;
+    public float coinCollect20 = 2f;
+    public float coinCollect50 = 3f;
+    public float coinCollect100 = 4f;
+    public float coinCollect500 = 5f;
+    public float coinCollect1000 = 6f;
 
     private double toppingsLevel = 0;
     private double signLevel = 0;
@@ -364,13 +368,65 @@ public class Main : MonoBehaviour
         scrambleTropaLevelText.text = scrambleTropaLevel + "/" + maxUpgradeLevel;
     }
 
-    public void AddPassiveIncomeToScore()
+    public void AddPassiveIncomeToScore20()
     {
-        score += incomePerSecond * coinCollect;
+        score += incomePerSecond * coinCollect20;
         scoreText.text = scoreString + score.ToString("0.0");
 
         FloatingTextSpawner.Instance.ShowText(
-            "+" + incomePerSecond * coinCollect,
+            "+" + (incomePerSecond * coinCollect20).ToString("0.00"),
+            Input.mousePosition
+        );
+
+        //ForceUIUpdate();
+    }
+
+    public void AddPassiveIncomeToScore50()
+    {
+        score += incomePerSecond * coinCollect50;
+        scoreText.text = scoreString + score.ToString("0.0");
+
+        FloatingTextSpawner.Instance.ShowText(
+            "+" + (incomePerSecond * coinCollect50).ToString("0.00"),
+            Input.mousePosition
+        );
+
+        //ForceUIUpdate();
+    }
+
+    public void AddPassiveIncomeToScore100()
+    {
+        score += incomePerSecond * coinCollect100;
+        scoreText.text = scoreString + score.ToString("0.0");
+
+        FloatingTextSpawner.Instance.ShowText(
+            "+" + (incomePerSecond * coinCollect100).ToString("0.00"),
+            Input.mousePosition
+        );
+
+        //ForceUIUpdate();
+    }
+
+    public void AddPassiveIncomeToScore500()
+    {
+        score += incomePerSecond * coinCollect500;
+        scoreText.text = scoreString + score.ToString("0.0");
+
+        FloatingTextSpawner.Instance.ShowText(
+            "+" + (incomePerSecond * coinCollect500).ToString("0.00"),
+            Input.mousePosition
+        );
+
+        //ForceUIUpdate();
+    }
+
+    public void AddPassiveIncomeToScore1000()
+    {
+        score += incomePerSecond * coinCollect1000;
+        scoreText.text = scoreString + score.ToString("0.0");
+
+        FloatingTextSpawner.Instance.ShowText(
+            "+" + (incomePerSecond * coinCollect1000).ToString("0.00"),
             Input.mousePosition
         );
 

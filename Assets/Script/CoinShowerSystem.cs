@@ -8,8 +8,8 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
     [Header("UI Parent (Canvas)")]
     public RectTransform canvasParent;
 
-    [Header("Prefab (UI Element)")]
-    public GameObject uiPrefab;
+    [Header("Prefab Pool (Weighted)")]
+    public List<WeightedPrefab> uiPrefabs = new List<WeightedPrefab>();
 
     [Header("Noise Texture (fallback / initial)")]
     public Texture2D maskTexture;
@@ -21,13 +21,18 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
     public float minSpawnDelay = 0.1f;
     public float maxSpawnDelay = 0.25f;
 
-    // Track spawned objects
     private List<GameObject> spawnedObjects = new List<GameObject>();
-
-    // Shows in the Inspector
     public UnityEvent onButtonPressed;
 
     private Coroutine spawnRoutine;
+
+    [System.Serializable]
+    public class WeightedPrefab
+    {
+        public GameObject prefab;
+        [Min(0f)]
+        public float weight = 1f;
+    }
 
     public void TriggerEvent()
     {
@@ -36,7 +41,6 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
 
     void OnEnable()
     {
-        // Listen for texture reloads
         UIReloadImage.OnTextureReloaded += OnTextureUpdated;
     }
 
@@ -51,29 +55,25 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
             StartSpawn(maskTexture);
     }
 
-    // Called when external system updates texture
     void OnTextureUpdated(Texture2D newTexture)
     {
         maskTexture = newTexture;
         StartSpawn(maskTexture);
     }
 
-    // Safely start spawning
     void StartSpawn(Texture2D texture)
     {
-        // Stop old spawn coroutine if still running
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
 
         spawnRoutine = StartCoroutine(SpawnRoutine(texture));
     }
 
-    // Main coroutine spawn function
     IEnumerator SpawnRoutine(Texture2D texture)
     {
-        if (texture == null || uiPrefab == null || canvasParent == null)
+        if (texture == null || canvasParent == null || uiPrefabs.Count == 0)
         {
-            Debug.LogError("Missing references!");
+            Debug.LogError("Missing references or prefabs!");
             yield break;
         }
 
@@ -95,7 +95,6 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
             {
                 Color pixel = pixels[x + y * width];
 
-                // Binary rule: white = spawn
                 if (pixel.r > 0.5f)
                 {
                     Vector2 pos = offset + new Vector2(
@@ -103,7 +102,8 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
                         y * cellSize
                     );
 
-                    GameObject obj = Instantiate(uiPrefab, canvasParent);
+                    GameObject prefab = GetWeightedRandomPrefab();
+                    GameObject obj = Instantiate(prefab, canvasParent);
 
                     RectTransform rt = obj.GetComponent<RectTransform>();
 
@@ -115,7 +115,6 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
 
                     spawnedObjects.Add(obj);
 
-                    // Random delay before next spawn
                     yield return new WaitForSeconds(
                         Random.Range(minSpawnDelay, maxSpawnDelay)
                     );
@@ -124,7 +123,34 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
         }
     }
 
-    // Clear all spawned UI objects
+    GameObject GetWeightedRandomPrefab()
+    {
+        float totalWeight = 0f;
+
+        for (int i = 0; i < uiPrefabs.Count; i++)
+        {
+            if (uiPrefabs[i].prefab != null)
+                totalWeight += uiPrefabs[i].weight;
+        }
+
+        float random = Random.Range(0f, totalWeight);
+
+        for (int i = 0; i < uiPrefabs.Count; i++)
+        {
+            var entry = uiPrefabs[i];
+
+            if (entry.prefab == null)
+                continue;
+
+            if (random < entry.weight)
+                return entry.prefab;
+
+            random -= entry.weight;
+        }
+
+        return uiPrefabs[0].prefab;
+    }
+
     public void ClearAll()
     {
         for (int i = 0; i < spawnedObjects.Count; i++)

@@ -2137,7 +2137,11 @@ MonoBehaviour:
   scoreString: "\u20B1"
   score: 0
   incomePerSecond: 1
-  coinCollect: 1.25
+  coinCollect20: 1.25
+  coinCollect50: 1.75
+  coinCollect100: 2.25
+  coinCollect500: 3.5
+  coinCollect1000: 4.4
   unlockManager: {fileID: 0}
 --- !u!114 &8958160822969185953
 MonoBehaviour:
@@ -2209,7 +2213,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasParent: {fileID: 4807648604316869870}
-  uiPrefab: {fileID: 329828909603660693, guid: 5062fd79672032d419b75ad720dd0a80, type: 3}
+  uiPrefabs:
+  - prefab: {fileID: 22905948197634150, guid: d88a4590fe83ffb40ab07272fbc9109d, type: 3}
+    weight: 70
+  - prefab: {fileID: 329828909603660693, guid: 5062fd79672032d419b75ad720dd0a80, type: 3}
+    weight: 60
+  - prefab: {fileID: 4956424870284505374, guid: facce82544a34164fa096ded80754cd2, type: 3}
+    weight: 40
+  - prefab: {fileID: 8140709225984910597, guid: 92adcb1554ef9b348a5931001af2ea81, type: 3}
+    weight: 30
+  - prefab: {fileID: 6073129087878857952, guid: 1871369df9d68e8449d0314621984cd0, type: 3}
+    weight: 15
   maskTexture: {fileID: 2800000, guid: 59d0cc45d63d955438c7870a029e5e61, type: 3}
   cellSize: 10
   minSpawnDelay: 0.05
@@ -3201,7 +3215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasParent: {fileID: 4039277840338096375}
-  uiPrefab: {fileID: 329828909603660693, guid: 5062fd79672032d419b75ad720dd0a80, type: 3}
+  uiPrefabs: []
   maskTexture: {fileID: 2800000, guid: 59d0cc45d63d955438c7870a029e5e61, type: 3}
   cellSize: 10
   minSpawnDelay: 0.1

@@ -753,6 +753,50 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1951050411}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 22905948197634150, guid: d88a4590fe83ffb40ab07272fbc9109d, type: 3}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[0].weight
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[1].prefab
+      value: 
+      objectReference: {fileID: 329828909603660693, guid: 5062fd79672032d419b75ad720dd0a80, type: 3}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[1].weight
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[2].prefab
+      value: 
+      objectReference: {fileID: 4956424870284505374, guid: facce82544a34164fa096ded80754cd2, type: 3}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[2].weight
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[3].prefab
+      value: 
+      objectReference: {fileID: 8140709225984910597, guid: 92adcb1554ef9b348a5931001af2ea81, type: 3}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[3].weight
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[4].prefab
+      value: 
+      objectReference: {fileID: 6073129087878857952, guid: 1871369df9d68e8449d0314621984cd0, type: 3}
+    - target: {fileID: 4416893111136649634, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
+      propertyPath: uiPrefabs.Array.data[4].weight
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 4429410268183878163, guid: 861396a26c3c32740b1ac1fafcc009c5, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
