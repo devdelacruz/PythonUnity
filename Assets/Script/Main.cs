@@ -34,9 +34,9 @@ public class Main : MonoBehaviour
     public double incomePerSecond = 0.1;
     public float coinCollect20 = 2f;
     public float coinCollect50 = 3f;
-    public float coinCollect100 = 4f;
-    public float coinCollect500 = 5f;
-    public float coinCollect1000 = 6f;
+    public float coinCollect100 = 5f;
+    public float coinCollect500 = 6f;
+    public float coinCollect1000 = 8f;
 
     private double toppingsLevel = 0;
     private double signLevel = 0;
@@ -47,12 +47,12 @@ public class Main : MonoBehaviour
 
     private int maxUpgradeLevel = 10;
 
-    private double toppingsUpgradeAmount = 0.5;
-    private double signUpgradeAmount = 1.0;
-    private double scrambleMakerUpgradeAmount = 2.5;
-    private double foodcartUpgradeAmount = 5.0;
-    private double decorationsUpgradeAmount = 10.0;
-    private double scrambleTropaUpgradeAmount = 25.0;
+    private double toppingsUpgradeAmount = 2.5;
+    private double signUpgradeAmount = 8;
+    private double scrambleMakerUpgradeAmount = 25;
+    private double foodcartUpgradeAmount = 50;
+    private double decorationsUpgradeAmount = 100;
+    private double scrambleTropaUpgradeAmount = 200;
 
     private double toppingsUnlockPrice = 50;
     private double signUnlockPrice = 250;
