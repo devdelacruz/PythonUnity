@@ -80,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -450945091
   m_SortingLayer: -1
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 143c55d464302c34db8fe01aa28c830b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -16581,7 +16581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2900838594428602083
 Transform:
   m_ObjectHideFlags: 0
@@ -26932,7 +26932,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3090084038017142277
 Transform:
   m_ObjectHideFlags: 0
@@ -32951,10 +32951,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2726271480661232426, guid: 09915191b17b4454d936aa567d7c8158, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3661786567664352433, guid: 09915191b17b4454d936aa567d7c8158, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4972711899092046108, guid: 09915191b17b4454d936aa567d7c8158, type: 3}
