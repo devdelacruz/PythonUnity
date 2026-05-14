@@ -618,7 +618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4317475127457211646}
   - component: {fileID: 2850644617728659230}
-  - component: {fileID: 7410630367850600201}
+  - component: {fileID: 8362071712485948767}
   m_Layer: 0
   m_Name: ScrambleTropa_1
   m_TagString: Untagged
@@ -694,7 +694,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7410630367850600201
+--- !u!95 &8362071712485948767
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -704,7 +704,7 @@ Animator:
   m_GameObject: {fileID: 1106010951054952915}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f4943e798a6fc4c4a970c413073c22b4, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10812,7 +10812,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1344122944344680946}
   - component: {fileID: 3961207040176262642}
-  - component: {fileID: 7471945083986942218}
+  - component: {fileID: 3384235272313845523}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -10887,7 +10887,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7471945083986942218
+--- !u!95 &3384235272313845523
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -10897,7 +10897,7 @@ Animator:
   m_GameObject: {fileID: 2111179782082248853}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bc5f36ea9de2ed1449b9d3df3286b023, type: 2}
+  m_Controller: {fileID: 9100000, guid: 159f40271dcac9f46826bfda22edf2bc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -16424,7 +16424,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8040164811734665029}
   - component: {fileID: 7588249357710149522}
-  - component: {fileID: 7279202337457285247}
+  - component: {fileID: 160314155188068477}
   m_Layer: 0
   m_Name: Clouds
   m_TagString: Untagged
@@ -16499,7 +16499,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &7279202337457285247
+--- !u!95 &160314155188068477
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -16509,7 +16509,7 @@ Animator:
   m_GameObject: {fileID: 5197813183539817087}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d515760f907fa374e82e1e18c113d5b4, type: 2}
+  m_Controller: {fileID: 9100000, guid: c4098fdec1e18d64280eca67d2976934, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
