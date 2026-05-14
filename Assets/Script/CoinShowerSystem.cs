@@ -61,7 +61,7 @@ public class BinaryNoiseUIPrefabSpawner : MonoBehaviour
         StartSpawn(maskTexture);
     }
 
-    void StartSpawn(Texture2D texture)
+    public void StartSpawn(Texture2D texture)
     {
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
