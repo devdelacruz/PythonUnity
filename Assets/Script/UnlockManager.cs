@@ -4,6 +4,7 @@ public class UnlockManager : MonoBehaviour
 {
 
     [Header("Objects To Activate")]
+    public GameObject stallObject;
     public GameObject toppingsObject;
     public GameObject signObject;
     public GameObject scrambleMakerObject;
@@ -69,6 +70,7 @@ public class UnlockManager : MonoBehaviour
     public void ActivateFoodCart()
     {
         foodCartObject.SetActive(true);
+        stallObject.SetActive(false);
 
         Debug.Log("UnlockManager: Food Cart unlocked!");
     }
