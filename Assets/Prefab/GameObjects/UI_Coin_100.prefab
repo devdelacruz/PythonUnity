@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useTimerDestroy: 1
-  destroyTime: 4
+  destroyTime: 5
   useDestroy: 0
 --- !u!95 &2123351527717573847
 Animator:
