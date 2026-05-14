@@ -157,7 +157,13 @@ public class Main : MonoBehaviour
     public void UpdateScore()
     {
         score += 1;
-        ForceUIUpdate();
+        scoreText.text = scoreString + score.ToString("0.0");
+
+        FloatingTextSpawner.Instance.ShowText(
+            "+1",
+            Input.mousePosition
+        );
+        //ForceUIUpdate();
     }
 
     public void UpdateScore2()
@@ -361,8 +367,14 @@ public class Main : MonoBehaviour
     public void AddPassiveIncomeToScore()
     {
         score += incomePerSecond * coinCollect;
+        scoreText.text = scoreString + score.ToString("0.0");
 
-        ForceUIUpdate();
+        FloatingTextSpawner.Instance.ShowText(
+            "+" + incomePerSecond * coinCollect,
+            Input.mousePosition
+        );
+
+        //ForceUIUpdate();
     }
 
     public void UpdateNextLevelPrices()
